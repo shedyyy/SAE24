@@ -1,0 +1,9 @@
+{% extends "main.html" %}
+{% block content %}
+<h1>Détails des données</h1>
+<ul>
+    <li>Température : {{object.temp}}</li>
+    <li><a href="/capteur/detail/{{object.capteur.id}}/">Capteur : {{object.capteur}}</a></li>
+    <li>Date : {{object.timestamp}}</li>
+</ul>
+{% endblock content %}

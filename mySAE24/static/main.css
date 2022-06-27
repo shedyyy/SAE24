@@ -1,0 +1,486 @@
+*{
+    box-sizing:border-box;
+    padding:0;
+    margin:0;
+    font-weight:1;
+    color: black;
+    overflow-x:hidden;
+}
+
+body{background: linear-gradient(45deg, #FEF9D4, #ffed83);
+    background-attachment: fixed;
+    font-family:system-ui,Arial;
+    display:flex;
+    align-items:center;
+    flex-direction:column;}
+
+.drive{font-size:30px;
+       color:black;
+    }
+
+.decal{
+    margin-top:30px;
+}
+
+table{border-collapse: collapse;margin-top:30px;}
+table > tbody > tr > th, table > tbody > tr > td{padding:20px;border:1px solid #222;background:white;font-family:tahoma;width:200px;text-align:center;}
+table > tbody > tr > th{background:#ff7575;color:#EEE;}
+
+.navbar{
+    background-color:#ff7575;
+    color: #EEE;
+    display:flex;
+    justify-content:space-around;
+    align-items:center;
+    font-size:20px;
+    width:100vw;
+    height:auto;
+}
+
+
+h1{
+    animation: h1 0.5s;
+}
+
+@keyframes h1{
+    from{
+        transform:translateY(-100px);
+        opacity:0;
+    }
+
+
+    to{
+        transform:translateY(0px);
+        opacity:1;
+    }
+
+}
+
+.nav-list{
+    list-style-type:none;
+    display:flex;
+    flex-direction:row;
+}
+.nav-list a{
+ padding-right: 10px;
+}
+.nav-list .list-item{
+    display:inline-block;
+    padding:20px 10px;
+}
+
+.navbar a{
+    color:black;
+    text-decoration:none;
+    transition:0.5s;
+}
+
+.navbar a:hover{
+    color:white;
+}
+
+.ligne{
+    width:20px;
+    height:3px;
+    background-color:white;
+    margin-bottom:4px;
+}
+
+.menu{
+    display:none;
+}
+
+form{
+    display:flex;
+    justify-content:center;
+    flex-direction:column;
+    align-items:center;
+    margin-top:75px;
+    width:65vw;
+    border-radius:5px;
+}
+
+form > li{
+    list-style-type:none;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    padding:7px;
+}
+
+li{
+    list-style-type:none;
+    padding:7px;
+}
+
+label{
+    font-family:system-ui,arial;
+}
+
+input[type=submit],button, button a {
+    background:#ff8d79;
+    font-family:system-ui,arial;
+    padding: 1px 1px 1px 1px;
+    text-decoration: none;
+}
+
+input[type=text],input[type=number],textarea,select,option{
+    color:#778899;
+    font-family:system-ui,arial;
+}
+
+.bloc-info{
+    background-color:#778899;
+    display:flex;
+    flex-direction:column;
+    width:40vw;
+    border-radius:5px;
+    box-shadow:1px 1px 1px 1px #5b656e;
+    margin:15px;
+}
+
+.bloc-info > .li-list{
+    list-style-type:none;
+    display:flex;
+    flex-direction:column;
+}
+
+h2 a{
+    margin-top:5%;
+    margin-bottom: 20%;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    transition:0.5s;
+}
+
+.file{transition:0.5s}
+.file:hover{
+    color:white;
+    transform: scale(1.2);
+
+}
+
+h2 a:hover{
+    color:black;
+}
+
+div .container button{
+    margin-left: 4px;
+}
+
+.container{
+    width: 100%;
+    text-align: center;
+    padding: 10px 0 10px 0;      /* haut | droit | bas | gauche */
+}
+/*.separ-button{margin:15px;padding:5px;display:flex;flex-direction:column;}      c'étais dans les index, je l'ai remplacer par .container pour que l'affichage soit plus clair*/
+
+h1{
+    margin-top:2%;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+}
+
+
+@media all and (max-width:650px){
+    .navbar{
+        flex-direction:column;
+    }
+
+    .nav-list .list-item{
+        display:block;
+        border-top:1px solid white;
+        padding:10px;
+    }
+
+    .nav-list{
+        width:100%;
+        text-align:center;
+        padding-top:10px;
+        display:none;
+    }
+
+    .drive{
+        text-decoration:underline;
+    }
+
+    .menu{
+        display:block;
+        position:absolute;
+        right:15px;
+        top:5px;
+    }
+}
+
+
+li.dropdown {
+    display: inline-block;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+}
+
+.dropdown-content a {
+    color: black;
+    padding: 2px 8px 6px 6px;     /*ici liste dans dropdown*/
+    text-decoration: none;
+    display: block;
+    text-align: left;
+    background-color: antiquewhite;
+}
+
+.dropdown-content a:hover {
+    background-color: rgba(15, 0, 82, 0.849);
+    color: whitesmoke;
+    text-decoration: none;
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+
+
+
+
+
+
+ /* The alert message box */
+ .alert {
+    padding: 20px;
+    background-color: #f44336; /* Red */
+    color: white;
+    margin-bottom: 15px;
+  }
+
+ 
+
+.filter{
+    display: flex;
+    flex-direction: column;
+    margin: auto;
+}
+.filter form{
+    flex-direction: column;
+    margin-top: 20px;
+    border-radius: 10px;
+}
+
+.filter > * {
+    padding: 20px;
+}
+
+
+
+
+
+h2{
+    text-align: center;
+    overflow-y: hidden;
+}
+
+.raw_data{
+    text-align: center;
+    padding-top: 20px;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    height: 100%;      /* Just for the demo          */
+    overflow-y: auto;    /* Trigger vertical scroll    */
+}
+
+
+
+
+@import "compass/css3";
+ @import url("https://fonts.googleapis.com/css?family=Lato");
+ * {
+	 margin: 0;
+	 padding: 0;
+}
+
+ h1 {
+	 font-weight: normal;
+	 font-size: 40px;
+	 font-weight: normal;
+	 text-transform: uppercase;
+	 float: left;
+	 margin: 20px 0 100px 10px;
+}
+ h1 span {
+	 font-size: 13px;
+	 display: block;
+	 padding-left: 4px;
+}
+ .tabs {
+	 width: 100%;
+	 float: none;
+	 list-style: none;
+	 position: relative;
+	 margin: 80px 0 0 10px;
+	 text-align: left;
+     height: 68vh;
+}
+
+
+.tabs::-webkit-scrollbar {
+    display: none;
+  }
+  
+  /* Hide scrollbar for IE, Edge and Firefox */
+  .tabs {
+    -ms-overflow-style: none;  /* IE and Edge */
+    scrollbar-width: none;  /* Firefox */
+  }
+
+ .tabs li {
+	 float: right;
+	 display: block;
+}
+ .tabs input[type="radio"] {
+	 position: absolute;
+	 top: 0;
+	 left: -9999px;
+}
+ .tabs label {
+	 display: block;
+	 padding: 14px 21px;
+	 border-radius: 2px 2px 0 0;
+	 font-size: 20px;
+	 font-weight: normal;
+	 text-transform: uppercase;
+	 background: #EBEAEA;
+	 cursor: pointer;
+	 position: relative;
+	 top: 4px;
+}
+ .tabs label:hover {
+	 background: #ff7575;
+}
+ .tabs .tab-content {
+	 z-index: 2;
+	 display: none;
+	 overflow: hidden;
+	 width: 100%;
+	 font-size: 17px;
+	 line-height: 25px;
+	 padding: 25px;
+	 position: absolute;
+	 top: 53px;
+	 left: 0;
+	 background: #ff8d79;
+}
+ .tabs [id^="tab"]:checked + label {
+	 top: 0;
+	 padding-top: 17px;
+	 background: #ff8d79;
+}
+.tabs [id^="tab"]:checked ~ [id^="tab-content"] {
+    display: block;
+}
+ p.link {
+	 clear: both;
+	 margin: 380px 0 0 15px;
+}
+ p.link a {
+	 text-transform: uppercase;
+	 text-decoration: none;
+	 display: inline-block;
+	 color: #fff;
+	 padding: 5px 10px;
+	 margin: 0 5px;
+	 background-color: #ffd861;
+}
+ p.link a:hover {
+	 background-color: #ffd861;
+}
+ 
+.content{
+    width: 90vw;
+    justify-content: center;
+    display: flex;
+    height: 100%;
+}
+
+.block{
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.export{
+    padding-top: 10px;
+    text-decoration: none;
+    flex-grow: 100%;
+}
+
+a {
+    display: block;
+    position: relative;
+    padding: 0.2em 0;
+    text-decoration: none;
+  }
+  
+  /* Fade in */
+  a::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 0.1em;
+    background-color: black;
+    opacity: 0;
+    transition: opacity 300ms, transform 300ms;
+  }
+  
+  a:hover::after,
+  a:focus::after {
+    opacity: 1;
+    transform: translate3d(0, 0.2em, 0);
+  }
+  
+  /* Slide in */
+ a {
+    overflow: hidden;
+  }
+  
+a::after {
+    opacity: 1;
+    transform: translate3d(-100%, 0, 0);
+  }
+  
+a:hover::after,
+a:focus::after{
+    transform: translate3d(0, 0, 0);
+  }
+.hidden{
+    visibility: hidden;
+}
+
+
+form table{
+    margin: 20px;
+}
+
+.submit{
+    color: black;
+    background-color: white;
+    height: 4em;
+    width: 8em;
+}
+
+form{
+    display: flex;
+    flex-direction: row;
+    text-align: center;
+}

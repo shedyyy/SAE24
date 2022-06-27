@@ -1,0 +1,19 @@
+{% extends "main.html" %}
+{% block content %}
+<h2 class="form-title"></h2>
+
+<table class="table table-fluid">
+        <tr>
+            <th>ata</th>
+            
+        </tr>
+        {% for Data in object_list %}
+        <tr>
+            <td>{{ Data }}</td>
+            <td><a href="{% url "data_detail" Data.id %}">Détails</a></td>
+        </tr>
+        {% endfor %}
+</table>
+</div>
+
+{% endblock content %}

@@ -1,0 +1,122 @@
+{% extends "main.html" %}
+{% block content %}
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/simple-line-icons/2.4.1/css/simple-line-icons.css" />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<meta http-equiv ="refresh" content = "5" /> 
+
+<div class="content">
+  <ul class="tabs" role="tablist">
+      <li>
+          <input type="radio" name="tabs" id="tab1" checked />
+          <label for="tab1" 
+                 role="tab" 
+                 aria-selected="true" 
+                 aria-controls="panel1" 
+                 tabindex="0">Données</label>
+          <div id="tab-content1" 
+               class="tab-content" 
+               role="tabpanel" 
+               aria-labelledby="description" 
+               aria-hidden="false">
+            
+               <div class="raw_data" id="raw_data">
+                  {% if data.count == 0 %}
+                    <h2 class="error"> Pas de Données </h2>
+                  {% else %}
+                <table>
+                  <tr>
+                    <th> Température </th>
+                    <th> Date </th>
+                    <th> Pièce </th>
+                    <th> Emplacement </th>
+                    <th> Capteur </th>
+                  </tr>
+                  {% for i in data %}
+                  <tr>
+                    <td> {{i.temp}} </td>
+                    <td> {{i.timestamp}} </td>
+                    <td> {{i.capteur.piece}} </td>
+                    <td> {{i.capteur.emplacement}} </td>
+                    <td> {{i.capteur.nom}} </td>
+                  </tr>
+                  {% endfor %}
+                  {% endif %}
+                </table>
+              </div>
+
+
+
+
+          </div>
+      </li>
+    
+      <li>
+          <input type="radio" name="tabs" id="tab2" />
+          <label for="tab2"
+                 role="tab" 
+                 aria-selected="false" 
+                 aria-controls="panel2" 
+                 tabindex="0">Graphique</label>
+          <div id="tab-content2" 
+               class="tab-content"
+               role="tabpanel" 
+               aria-labelledby="specification" 
+               aria-hidden="true">
+               <div id="chart" class="chart">
+                <canvas id="myChart" width="200" height="70"></canvas>  
+              </div>
+          </div>
+      </li>
+  </ul>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script>
+  const labels = [
+  {% for i in data %} "{{i.timestamp}}", {% endfor %}
+  ];
+
+  const data = {
+    labels: labels,
+    datasets: [{
+      label: 'Temperature',
+      backgroundColor: 'rgb(255,216,97)',
+      borderColor: 'rgb(255,216,97)',
+      data: [{% for i in data %} "{{i.temp}}", {% endfor %}],
+    }]
+  };
+
+  const config = {
+    type: 'line',
+    data: data,
+    options: {}
+  };
+</script>
+<script>
+  const myChart = new Chart(
+    document.getElementById('myChart'),
+    config
+  );
+</script>
+<div class="filter">
+    <form action="" method="POST">
+      {% csrf_token %}
+      <ul>
+        <select name="capteur">
+          <option value="*">Capteurs</option>
+          {% for capteur in cap %}
+          <option value="{{capteur.id}}">{{capteur.nom}}</option>
+          {% endfor %}
+      </select>
+        <label for="start">Début:</label>
+        <input type="date" name="start">
+        <label for="stop">Fin:</label>
+        <input type="date" name="stop">
+        <input type="submit" value="Appliquer">
+      </ul>
+      <a href="/csv" class="export">Télécharger les données</a>
+    </form>
+  </div>
+
+
+{% endblock content %}
